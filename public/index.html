@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscription Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="auth-section" class="container">
+    <h1>Subscription Tracker</h1>
+    <div class="card">
+      <h2 id="auth-title">Login</h2>
+      <input type="email" id="email" placeholder="Email">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="handleAuth()">Login</button>
+      <p class="toggle" onclick="toggleAuth()">Don't have an account? Register</p>
+      <p id="auth-error" class="error"></p>
+    </div>
+  </div>
+
+  <div id="app-section" class="hidden">
+    <header>
+      <h1>Subscription Tracker</h1>
+      <div>
+        <span id="user-email"></span>
+        <button onclick="logout()" class="btn-outline">Logout</button>
+      </div>
+    </header>
+
+    <div class="stats">
+      <div class="stat-card">
+        <h3>Monthly Spend</h3>
+        <p id="monthly">₹0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Yearly Spend</h3>
+        <p id="yearly">₹0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Total Subscriptions</h3>
+        <p id="total">0</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <h2>Add Subscription</h2>
+        <input type="text" id="name" placeholder="Name (e.g. Netflix)">
+        <input type="number" id="amount" placeholder="Amount">
+        <select id="cycle">
+          <option value="monthly">Monthly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+        <input type="date" id="due-date">
+        <select id="category">
+          <option value="streaming">Streaming</option>
+          <option value="software">Software</option>
+          <option value="fitness">Fitness</option>
+          <option value="other">Other</option>
+        </select>
+        <button onclick="addSubscription()">Add</button>
+      </div>
+
+      <div class="card">
+        <h2>Your Subscriptions</h2>
+        <div id="subs-list"></div>
+      </div>
+
+      <div class="card">
+        <h2>Upcoming (Next 7 days)</h2>
+        <div id="upcoming-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
